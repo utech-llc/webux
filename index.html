@@ -1,0 +1,1460 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebUx Solution - প্রিমিয়াম UX-সমন্বিত ওয়েবসাইট, ডোমেইন ও টেক সলিউশন</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;600;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+    <style>
+        /* --- Variables: Refined for Hi-Tech --- */
+        :root {
+            --primary-color: #00bcd4; /* Cyan - more vibrant techy blue */
+            --secondary-color: #212f3d; /* Very Dark Blue-Grey */
+            --dark-bg: #1a2634; /* Deeper, slightly warmer dark */
+            --light-bg: #e0e5eb; /* Subtle cool grey */
+            --text-light: #eaf1f8; /* Slightly cooler light text */
+            --text-dark: #34495e; /* Keep this for contrast on light */
+            --text-muted: #95a5a6; /* Muted grey */
+            --accent-color: #9b59b6; /* Purple accent - adds contrast */
+            --glow-color: rgba(0, 188, 212, 0.5); /* Primary color glow */
+
+            --card-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* Softer shadow */
+            --card-hover-shadow: 0 15px 30px rgba(0, 0, 0, 0.2); /* More pronounced hover shadow */
+            --border-radius: 8px; /* Slightly less rounded */
+            --section-padding: 100px 0; /* Slightly more padding */
+            --transition-speed: 0.4s;
+        }
+
+        body {
+            font-family: 'Noto Sans Bengali', 'Poppins', sans-serif;
+            overflow-x: hidden;
+            background-color: #f8f9fa; /* Very light background */
+            color: var(--text-dark);
+            line-height: 1.7;
+        }
+
+        /* --- Utility Classes --- */
+        .text-primary { color: var(--primary-color) !important; }
+        .text-secondary { color: var(--secondary-color) !important; }
+        .text-accent { color: var(--accent-color) !important; }
+        .bg-light-subtle { background-color: var(--light-bg) !important; }
+
+
+        /* --- Navigation Bar --- */
+        .navbar {
+            background-color: rgba(26, 38, 52, 0.95); /* var(--dark-bg) with alpha */
+            backdrop-filter: blur(12px); /* More blur */
+            transition: background-color var(--transition-speed) ease, padding var(--transition-speed) ease;
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2); /* Darker shadow */
+        }
+        .navbar-scrolled {
+             background-color: rgba(26, 38, 52, 0.98);
+             padding: 0.8rem 0; /* Slightly less padding */
+             box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.7rem; /* Slightly larger */
+            color: var(--text-light) !important;
+            letter-spacing: 1.5px; /* More spacing */
+             text-shadow: 0 0 5px rgba(0, 188, 212, 0.3); /* Subtle glow */
+        }
+        .nav-link {
+            color: rgba(234, 241, 248, 0.8) !important; /* var(--text-light) with alpha */
+            font-weight: 500; /* Slightly less bold */
+            margin: 0 0.8rem; /* More horizontal space */
+            transition: color 0.3s ease, transform 0.2s ease;
+            position: relative;
+        }
+         .nav-link::after { /* Underline hover effect */
+             content: '';
+             position: absolute;
+             bottom: -7px; /* Lower the underline */
+             left: 0;
+             width: 0;
+             height: 3px;
+             background-color: var(--primary-color);
+             transition: width 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Smoother animation */
+              border-radius: 2px;
+         }
+        .nav-link:hover, .nav-link.active {
+            color: #ffffff !important;
+            transform: translateY(-2px);
+        }
+         .nav-link:hover::after, .nav-link.active::after {
+             width: 100%;
+             box-shadow: 0 0 8px var(--glow-color); /* Add glow to underline */
+         }
+        .navbar-toggler {
+            border-color: rgba(234, 241, 248, 0.5); /* Match text-light */
+        }
+        .navbar-toggler-icon {
+             background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28234, 241, 248, 0.8%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e"); /* Match text-light */
+        }
+
+
+        /* --- Hero Section: Enhanced --- */
+        .hero-section {
+            position: relative;
+            background: linear-gradient(135deg, var(--dark-bg) 0%, var(--secondary-color) 60%, #121c26 100%); /* Deeper gradient */
+            color: var(--text-light);
+            padding: 180px 0 120px 0;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            overflow: hidden; /* Keep shapes within */
+            border-bottom: 5px solid var(--primary-color); /* Techy border */
+        }
+        /* Dynamic background elements (more varied) */
+        .hero-section::before, .hero-section::after, .hero-section .bg-shape {
+            content: '';
+            position: absolute;
+            background: rgba(0, 188, 212, 0.05); /* Primary color tint */
+            border-radius: 50%;
+            animation: moveShapes 30s infinite ease-in-out alternate;
+            z-index: 0;
+            pointer-events: none; /* Don't block clicks */
+        }
+         .hero-section::before {
+             width: 400px; height: 400px;
+             bottom: -150px; left: -150px; animation-duration: 35s; opacity: 0.08;
+             background: radial-gradient(circle, rgba(0, 188, 212, 0.1) 0%, transparent 60%); /* Gradient shape */
+         }
+         .hero-section::after {
+             width: 500px; height: 500px;
+             top: -180px; right: -250px; animation-delay: 5s; opacity: 0.06;
+             background: radial-gradient(circle, rgba(155, 89, 182, 0.1) 0%, transparent 60%); /* Accent color gradient shape */
+         }
+         /* Add a third shape */
+         .hero-section .bg-shape {
+             width: 300px; height: 300px;
+             top: 50%; left: 10%; transform: translate(-50%, -50%); animation-duration: 40s; animation-delay: 10s; opacity: 0.05;
+             background: radial-gradient(circle, rgba(234, 241, 248, 0.08) 0%, transparent 60%); /* Light color gradient shape */
+             border-radius: 0; /* Maybe a different shape */
+             transform: rotate(45deg); /* Rotate for abstract look */
+         }
+        @keyframes moveShapes {
+            0% { transform: translate(0, 0) rotate(0deg) scale(1); }
+            25% { transform: translate(20px, 15px) rotate(15deg) scale(1.02); }
+            50% { transform: translate(0, 30px) rotate(0deg) scale(1); }
+            75% { transform: translate(-20px, 15px) rotate(-15deg) scale(0.98); }
+            100% { transform: translate(0, 0) rotate(0deg) scale(1); }
+        }
+         /* Add a subtle grid pattern overlay */
+         .hero-section::before {
+             content: '';
+             position: absolute;
+             top: 0; left: 0; right: 0; bottom: 0;
+             background-image: linear-gradient(to right, rgba(0, 188, 212, 0.05) 1px, transparent 1px), linear-gradient(to bottom, rgba(0, 188, 212, 0.05) 1px, transparent 1px);
+             background-size: 40px 40px; /* Adjust grid size */
+             z-index: 0;
+              opacity: 0.3;
+             pointer-events: none;
+         }
+
+        .hero-content {
+            position: relative; z-index: 1;
+        }
+        .hero-section h1 {
+            font-size: 3.8rem; /* Larger */
+            font-weight: 700; margin-bottom: 25px;
+            line-height: 1.3;
+            text-shadow: 0 5px 25px rgba(0,0,0,0.5); /* More pronounced shadow */
+            color: var(--text-light);
+        }
+        .hero-section h1 span {
+            color: var(--primary-color);
+            text-shadow: 0 0 20px var(--glow-color); /* Primary color glow */
+        }
+        .hero-section .lead {
+            font-size: 1.4rem; /* Slightly larger */
+            margin-bottom: 40px;
+            font-weight: 400; color: rgba(234, 241, 248, 0.9); /* Match text-light */
+            max-width: 800px; margin-left: auto; margin-right: auto;
+        }
+        .btn-primary {
+            background-color: var(--primary-color); border-color: var(--primary-color);
+            padding: 14px 35px; font-size: 1.1rem; font-weight: 600;
+            border-radius: 50px; transition: all var(--transition-speed) ease;
+            box-shadow: 0 5px 15px rgba(0, 188, 212, 0.4); /* Primary glow shadow */
+             position: relative; /* For pseudo-element */
+             overflow: hidden; /* Hide overflowing glow */
+        }
+         /* Button hover glow effect */
+         .btn-primary::before {
+             content: '';
+             position: absolute;
+             top: 0; left: -100%;
+             width: 100%; height: 100%;
+             background: linear-gradient(120deg, transparent, rgba(255,255,255,0.3), transparent);
+             transition: all var(--transition-speed) ease;
+         }
+         .btn-primary:hover::before { left: 100%; }
+
+        .btn-primary:hover {
+            background-color: #00acc1; border-color: #00acc1;
+            transform: translateY(-5px); /* More lift */
+            box-shadow: 0 10px 25px rgba(0, 188, 212, 0.6); /* Stronger glow shadow */
+        }
+         .btn-outline-light {
+             border-color: rgba(234, 241, 248, 0.7); color: rgba(234, 241, 248, 0.9); /* Match text-light */
+             padding: 14px 35px; font-size: 1.1rem; font-weight: 600;
+             border-radius: 50px; transition: all var(--transition-speed) ease;
+             background-color: transparent;
+             position: relative;
+             overflow: hidden;
+             z-index: 1; /* Above the pseudo element */
+         }
+         /* Outline button background fill effect */
+         .btn-outline-light::before {
+             content: '';
+             position: absolute;
+             top: 0; left: 0;
+             width: 100%; height: 100%;
+             background-color: rgba(234, 241, 248, 0.1); /* Light background fill */
+             z-index: -1;
+             transition: transform var(--transition-speed) ease;
+             transform: scaleX(0);
+             transform-origin: left;
+         }
+         .btn-outline-light:hover::before {
+             transform: scaleX(1);
+         }
+
+        .btn-outline-light:hover {
+             background-color: transparent; /* Background handled by pseudo-element */
+             color: #fff;
+             border-color: #fff; transform: translateY(-5px); /* More lift */
+             box-shadow: 0 5px 15px rgba(234, 241, 248, 0.2);
+        }
+
+
+        /* --- Section Styling --- */
+        section {
+            padding: var(--section-padding);
+        }
+        .section-title {
+            text-align: center; margin-bottom: 70px;
+        }
+        .section-title h2 {
+            font-size: 3rem; /* Larger */
+            font-weight: 700; color: var(--secondary-color);
+            margin-bottom: 15px; position: relative; display: inline-block;
+             letter-spacing: 0.5px;
+        }
+         .section-title h2::after {
+             content: '';
+             display: block;
+             width: 80px; /* Wider underline */
+             height: 5px; /* Thicker underline */
+             background-color: var(--primary-color);
+             margin: 15px auto 0; /* More space below title */
+             border-radius: 3px;
+              box-shadow: 0 0 10px var(--glow-color); /* Add glow */
+         }
+        .section-title p {
+            font-size: 1.15rem; /* Slightly larger */
+            color: var(--text-muted); max-width: 800px; margin: 0 auto;
+        }
+
+
+        /* --- Service, Domain, Feature, Pricing Cards: Enhanced --- */
+        .card-common {
+            background-color: #fff; border: 1px solid #e0e0e0; /* Subtle border */
+            border-radius: var(--border-radius);
+            padding: 40px; /* More padding */
+            margin-bottom: 30px;
+            box-shadow: var(--card-shadow);
+            transition: all var(--transition-speed) cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            height: 100%; display: flex; flex-direction: column;
+            position: relative; z-index: 1;
+            overflow: hidden; /* For hover effects */
+        }
+         /* Card hover effect */
+         .card-common::before {
+             content: '';
+             position: absolute;
+             top: 0; left: 0;
+             width: 100%; height: 5px; /* Top border */
+             background-color: var(--primary-color);
+             transform: scaleX(0);
+             transform-origin: left;
+             transition: transform var(--transition-speed) ease-out;
+         }
+        .card-common:hover {
+            transform: translateY(-10px); /* Less lift */
+            box-shadow: var(--card-hover-shadow);
+             border-color: var(--primary-color); /* Highlight border */
+        }
+         .card-common:hover::before {
+             transform: scaleX(1);
+         }
+
+        .card-common .icon {
+            font-size: 4.5rem; /* Larger icons */
+            color: var(--primary-color);
+            margin-bottom: 25px; text-align: center;
+            line-height: 1;
+            animation: pulseIcon 3s infinite ease-in-out alternate; /* Slower pulse */
+             text-shadow: 0 0 10px var(--glow-color); /* Icon glow */
+             transition: color var(--transition-speed) ease;
+        }
+         @keyframes pulseIcon {
+             0% { transform: scale(1); opacity: 0.9; }
+             100% { transform: scale(1.02); opacity: 1; } /* Subtle scale */
+         }
+         .card-common:hover .icon {
+             animation-play-state: running; /* Keep pulsing on hover */
+             color: var(--secondary-color); /* Change color on hover */
+             text-shadow: none; /* Remove glow on hover */
+         }
+
+        .card-common h4, .card-common h5 {
+            font-weight: 700; color: var(--secondary-color); /* Darker color */
+            margin-bottom: 15px; text-align: center; font-size: 1.5rem; /* Larger titles */
+        }
+         .card-common p {
+             color: var(--text-muted); text-align: center;
+             flex-grow: 1; margin-bottom: 25px; font-size: 1.05rem; /* Slightly larger paragraph */
+             line-height: 1.8; /* More space */
+         }
+         .card-common .btn { margin-top: auto; align-self: center; }
+         .btn-outline-primary {
+             color: var(--primary-color); border-color: var(--primary-color);
+             font-weight: 600; border-radius: 50px; padding: 10px 30px;
+             transition: all var(--transition-speed) ease;
+         }
+         .btn-outline-primary:hover {
+             background-color: var(--primary-color); color: #fff;
+             box-shadow: 0 4px 12px rgba(0, 188, 212, 0.4); /* Primary glow shadow */
+         }
+
+        /* --- Process Section: Enhanced --- */
+        #process { background: linear-gradient(to right, var(--light-bg), #dce2e8); /* Slightly different gradient */ }
+        .process-step { text-align: center; position: relative; margin-bottom: 40px; padding-bottom: 20px; }
+        .process-step .icon-wrapper {
+            width: 90px; height: 90px; /* Larger circles */
+            background-color: var(--primary-color);
+            color: #fff; border-radius: 50%; display: inline-flex;
+            align-items: center; justify-content: center; font-size: 2.5rem; /* Larger icons */
+            margin-bottom: 20px; position: relative; z-index: 2;
+            box-shadow: 0 8px 20px var(--glow-color); /* Add glow */
+            border: 6px solid #f8f9fa; /* White border from body background */
+             transition: transform var(--transition-speed) ease;
+        }
+         .process-step:hover .icon-wrapper {
+             transform: scale(1.1); /* Zoom on hover */
+             box-shadow: 0 12px 25px var(--glow-color); /* Stronger glow on hover */
+         }
+
+        .process-step h5 { font-weight: 700; margin-bottom: 10px; color: var(--secondary-color); font-size: 1.3rem; /* Larger titles */ }
+        .process-step p { font-size: 1.05rem; color: var(--text-muted); max-width: 280px; margin-left: auto; margin-right: auto;} /* Slightly larger */
+
+        /* Dashed line connector */
+        @media (min-width: 768px) {
+            .process-row { display: flex; justify-content: space-between; }
+            .process-step { width: 24%; margin-bottom: 0; padding-bottom: 0;}
+            .process-step:not(:last-child)::after {
+                content: ''; position: absolute; top: 50px; /* Adjust position */
+                left: calc(50% + 45px); /* Position after the circle */
+                width: calc(100% - 90px - 30px); /* Adjust width based on circle size */
+                height: 3px; /* Thicker line */
+                border-top: 3px dashed var(--primary-color); /* Primary color */
+                opacity: 0.6; z-index: 1;
+            }
+             .process-step:last-child::after { display: none; }
+        }
+         @media (max-width: 767.98px) {
+             .process-step { padding-bottom: 0; }
+             .process-step:not(:last-child)::after {
+                 content: ''; position: absolute; bottom: 0;
+                 left: 50%; width: 3px; height: 50px; /* Thicker vertical line, more height */
+                 border-left: 3px dashed var(--primary-color);
+                 opacity: 0.6; z-index: 1; transform: translateX(-50%);
+             }
+             .process-step:last-child::after { display: none; }
+             .process-step:last-child { margin-bottom: 0; }
+         }
+
+
+        /* --- Pricing Section: Enhanced --- */
+        #pricing { background-color: #fff; }
+        .pricing-card {
+            background-color: #fff;
+            border: 1px solid var(--light-bg);
+            border-radius: var(--border-radius);
+            padding: 45px 30px; /* More padding */
+            margin-bottom: 30px;
+            box-shadow: var(--card-shadow);
+            transition: all var(--transition-speed) ease;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+             position: relative;
+             overflow: hidden;
+        }
+         /* Pricing card hover background effect */
+         .pricing-card::before {
+              content: '';
+              position: absolute;
+              top: 0; left: 0; width: 100%; height: 100%;
+              background: linear-gradient(to bottom right, rgba(0, 188, 212, 0.05) 0%, transparent 50%);
+              opacity: 0;
+              transition: opacity var(--transition-speed) ease;
+              pointer-events: none;
+         }
+
+        .pricing-card:hover {
+            transform: translateY(-15px); /* More lift */
+            box-shadow: var(--card-hover-shadow);
+             border-color: var(--primary-color); /* Highlight border */
+        }
+         .pricing-card:hover::before { opacity: 1; }
+
+        .pricing-card .package-name {
+            font-size: 1.6rem; /* Larger */
+            font-weight: 700;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+        }
+        .pricing-card .price {
+            font-size: 3rem; /* Much larger */
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+             line-height: 1;
+        }
+         .pricing-card .price span {
+             font-size: 1.1rem; /* Larger */
+             font-weight: 400;
+             color: var(--text-muted);
+         }
+        .pricing-card .features {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 30px;
+            flex-grow: 1;
+            text-align: left; /* Align features left */
+        }
+        .pricing-card .features li {
+            margin-bottom: 14px; /* More space */
+            color: var(--text-dark);
+            font-size: 1rem;
+            position: relative;
+            padding-left: 25px; /* Space for icon */
+        }
+         .pricing-card .features li i {
+             color: var(--accent-color); /* Accent color checkmark */
+             position: absolute;
+             left: 0;
+             top: 3px; /* Align icon vertically */
+              font-size: 1.1rem; /* Larger icon */
+         }
+          .pricing-card .features li .bi-x-circle-fill {
+              color: var(--text-muted); /* Grey for unavailable features */
+          }
+
+        .pricing-card .btn { margin-top: auto; width: 80%; margin-left: auto; margin-right: auto;} /* Make button wider */
+
+        /* --- Technologies Section: Enhanced --- */
+        #technologies {
+             background: linear-gradient(to bottom, var(--light-bg), #dce2e8); /* Gradient background */
+             position: relative; overflow: hidden;
+        }
+         /* Subtle tech pattern overlay */
+         #technologies::before {
+              content: '';
+              position: absolute;
+              top: 0; left: 0; right: 0; bottom: 0;
+              background-image: radial-gradient(circle, rgba(155, 89, 182, 0.1) 1px, transparent 1px); /* Accent color pattern */
+              background-size: 30px 30px;
+              opacity: 0.5;
+              z-index: 0;
+              pointer-events: none;
+         }
+
+        #technologies .icon-grid {
+             display: flex;
+             flex-wrap: wrap;
+             justify-content: center;
+             gap: 40px; /* More spacing between icons */
+             position: relative; z-index: 1; /* Above pattern */
+        }
+         #technologies .tech-icon {
+             font-size: 4rem; /* Larger icons */
+             color: var(--secondary-color);
+             opacity: 0.7;
+             transition: all var(--transition-speed) ease;
+             cursor: pointer; /* Indicate interactivity */
+         }
+         #technologies .tech-icon:hover {
+             color: var(--primary-color);
+             opacity: 1;
+             transform: scale(1.2) rotate(5deg); /* More pronounced hover effect */
+              text-shadow: 0 0 15px var(--glow-color); /* Glow on hover */
+         }
+
+        /* --- Features Section: Enhanced --- */
+        #features { background-color: #f8f9fa; } /* Match body background */
+         .feature-item { /* Card-common styles apply, adding specific overrides */
+             border: 1px solid #eee; /* Lighter border */
+         }
+         .feature-item .icon {
+              color: var(--accent-color); /* Use accent color for feature icons */
+             text-shadow: 0 0 10px rgba(155, 89, 182, 0.4); /* Accent glow */
+         }
+         .feature-item:hover .icon {
+              color: var(--primary-color); /* Change color on hover */
+              text-shadow: none;
+         }
+
+
+        /* --- Review Section: Enhanced --- */
+        #reviews { background-color: var(--light-bg); } /* Using light-bg */
+        .review-card {
+            background-color: #fff; padding: 40px; /* More padding */
+             border: 1px solid #e0e0e0; /* Subtle border */
+            border-radius: var(--border-radius);
+            box-shadow: var(--card-shadow); text-align: center; margin: 15px;
+             height: 100%;
+            transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+        }
+         .review-card:hover {
+             transform: translateY(-8px); /* Slight lift */
+             box-shadow: var(--card-hover-shadow);
+         }
+        .review-card img.avatar {
+            width: 100px; height: 100px; border-radius: 50%; /* Larger avatar */
+            margin: 0 auto 25px auto; object-fit: cover;
+             border: 5px solid var(--primary-color); /* Thicker border */
+             transition: border-color var(--transition-speed) ease;
+        }
+         .review-card:hover img.avatar {
+              border-color: var(--accent-color); /* Change border color on hover */
+         }
+        .review-card .stars { color: #ffb300; /* Warmer yellow */ margin-bottom: 15px; font-size: 1.3rem; /* Larger stars */ }
+        .review-card blockquote {
+            font-style: italic; color: var(--text-muted); margin-bottom: 20px;
+            font-size: 1.1rem; line-height: 1.8; /* Larger text, more space */
+        }
+        .review-card .reviewer-name { font-weight: 700; color: var(--secondary-color); margin-bottom: 5px; font-size: 1.15rem;} /* Larger name */
+        .review-card .reviewer-info { font-size: 1rem; color: var(--text-muted); } /* Slightly larger info */
+
+        /* Carousel controls styling */
+        .carousel-indicators [data-bs-target] {
+             background-color: var(--primary-color); opacity: 0.7; width: 14px; height: 14px; border-radius: 50%; /* Larger indicators */
+             margin: 0 8px; /* More spacing */
+             transition: opacity 0.3s ease, background-color 0.3s ease;
+        }
+        .carousel-indicators .active { opacity: 1; background-color: var(--secondary-color); } /* Different color for active */
+         .carousel-control-prev, .carousel-control-next {
+             width: 6%; /* Make controls less wide */
+             opacity: 0.7;
+             transition: opacity 0.3s ease;
+         }
+         .carousel-control-prev:hover, .carousel-control-next:hover { opacity: 1; }
+
+        .carousel-control-prev-icon, .carousel-control-next-icon {
+             background-color: rgba(33, 47, 61, 0.6); /* Darker background */
+             border-radius: 50%; padding: 20px; /* More padding */
+             background-size: 45%; /* Slightly smaller icon */
+             transition: background-color 0.3s ease;
+        }
+         .carousel-control-prev-icon:hover, .carousel-control-next-icon:hover { background-color: rgba(33, 47, 61, 0.8); }
+
+        /* --- FAQ Section: Enhanced --- */
+        #faq { background-color: #f8f9fa; } /* Match body background */
+        .accordion-item {
+             border: 1px solid #e0e0e0; /* Subtle border */
+             margin-bottom: 15px; /* More space between items */
+             background-color: transparent;
+             border-radius: var(--border-radius);
+             overflow: hidden; /* Ensure rounded corners */
+             box-shadow: var(--card-shadow); /* Subtle shadow */
+             transition: box-shadow var(--transition-speed) ease;
+        }
+         .accordion-item:hover { box-shadow: var(--card-hover-shadow); } /* More shadow on hover */
+
+        .accordion-button {
+             font-weight: 600; font-size: 1.15rem; color: var(--secondary-color); /* Darker color */
+             background-color: #fff; /* White background */
+             padding: 1.2rem 1.5rem;
+             border-radius: var(--border-radius) !important; /* Apply border radius */
+             transition: all 0.3s ease;
+             position: relative;
+             z-index: 1;
+        }
+         .accordion-button:hover {
+             color: var(--primary-color); /* Change color on hover */
+             background-color: #f0f4f8; /* Slight hover background */
+         }
+        .accordion-button:not(.collapsed) {
+             color: var(--primary-color);
+             background-color: #e9eff4;
+             border-bottom-left-radius: 0 !important; /* Remove bottom radius when open */
+             border-bottom-right-radius: 0 !important;
+        }
+         .accordion-button:focus { box-shadow: none; border-color: var(--primary-color); }
+
+        .accordion-button::after {
+             background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%2334495e'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e"); /* Dark icon */
+             transition: transform 0.3s ease;
+             background-size: 1.2rem;
+        }
+         .accordion-button:not(.collapsed)::after {
+            transform: rotate(-180deg);
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%2300bcd4'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3csvg%3e"); /* Primary color icon when open */
+        }
+        .accordion-body {
+             padding: 1rem 1.5rem 1.5rem 1.5rem; color: var(--text-muted); line-height: 1.8;
+             background-color: #fff;
+             border-top: 1px solid #e0e0e0; /* Separator line */
+             border-bottom-left-radius: var(--border-radius); /* Keep bottom radius */
+             border-bottom-right-radius: var(--border-radius);
+        }
+
+
+        /* --- Contact Section: Enhanced --- */
+        #contact {
+            background: linear-gradient(rgba(26, 38, 52, 0.95), rgba(33, 47, 61, 0.95)), url('https://via.placeholder.com/1920x800/1a2634/ffffff?text=Tech+Abstract+Background') center center/cover no-repeat fixed; /* Darker gradient */
+            color: var(--text-light); padding: 100px 0; text-align: center;
+            position: relative;
+            border-top: 5px solid var(--accent-color); /* Accent border */
+        }
+         /* Subtle pattern overlay */
+         #contact::before {
+             content: '';
+             position: absolute;
+             top: 0; left: 0; right: 0; bottom: 0;
+             background-image: radial-gradient(circle, rgba(155, 89, 182, 0.1) 1px, transparent 1px); /* Accent pattern */
+             background-size: 25px 25px; /* Slightly larger grid */
+             opacity: 0.4;
+             z-index: 1;
+              pointer-events: none;
+         }
+         #contact .container { position: relative; z-index: 2;}
+
+        #contact h2 {
+           color: #fff; margin-bottom: 25px; font-weight: 700; font-size: 3.5rem; /* Larger */
+             text-shadow: 0 0 10px rgba(255,255,255,0.2);
+        }
+        #contact p {
+            margin-bottom: 40px; font-size: 1.3rem; color: rgba(234, 241, 248, 0.95); /* Match text-light */
+            max-width: 800px; margin-left: auto; margin-right: auto;
+        }
+         .btn-light {
+             transition: all var(--transition-speed) ease; font-weight: 600; border-radius: 50px;
+             padding: 14px 35px; /* More padding */
+             background-color: #fff; color: var(--secondary-color); /* Darker color for contrast */
+             box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+             position: relative; overflow: hidden;
+         }
+         .btn-light::before { /* White button subtle glow */
+              content: '';
+              position: absolute;
+              top: 0; left: -100%; width: 100%; height: 100%;
+              background: linear-gradient(120deg, transparent, rgba(0, 188, 212, 0.2), transparent);
+              transition: all var(--transition-speed) ease;
+         }
+          .btn-light:hover::before { left: 100%; }
+
+        .btn-light:hover {
+             background-color: #eee; transform: translateY(-5px); /* More lift */
+             box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+             color: var(--dark-bg); /* Even darker */
+         }
+         .btn-outline-light-contact {
+             border-color: rgba(234, 241, 248, 0.6); color: rgba(234, 241, 248, 0.9); /* Match text-light */
+             padding: 14px 35px; font-size: 1.1rem; font-weight: 600;
+             border-radius: 50px; transition: all var(--transition-speed) ease;
+             position: relative; overflow: hidden; z-index: 1;
+         }
+          .btn-outline-light-contact::before { /* Outline button fill effect */
+              content: '';
+              position: absolute;
+              top: 0; left: 0; width: 100%; height: 100%;
+              background-color: rgba(0, 188, 212, 0.15); /* Primary color background fill */
+              z-index: -1;
+              transition: transform var(--transition-speed) ease;
+              transform: scaleX(0);
+              transform-origin: left;
+          }
+          .btn-outline-light-contact:hover::before { transform: scaleX(1); }
+
+         .btn-outline-light-contact:hover {
+             background-color: transparent; /* Background handled by pseudo-element */
+             color: #fff;
+             border-color: #fff;
+             box-shadow: 0 5px 15px rgba(234, 241, 248, 0.2);
+         }
+
+
+        /* --- Footer: Enhanced --- */
+        footer {
+            background-color: var(--secondary-color); /* Using secondary color */
+            color: rgba(234, 241, 248, 0.6); /* Match text-light */
+            padding: 60px 0 30px 0; font-size: 0.95rem; line-height: 2;
+             border-top: 5px solid var(--primary-color); /* Primary border */
+        }
+        footer h5 { color: var(--primary-color); margin-bottom: 20px; font-weight: 600; font-size: 1.15rem; } /* Primary color headings */
+        footer p, footer ul { line-height: inherit; }
+        footer ul { list-style: none; padding: 0; }
+        footer ul li { margin-bottom: 10px; } /* More space */
+        footer ul li a {
+             color: rgba(234, 241, 248, 0.7); text-decoration: none; /* Match text-light */
+             transition: color 0.3s ease;
+        }
+         footer ul li a:hover { color: #fff; text-decoration: underline; } /* Underline on hover */
+         footer .social-icons a {
+             color: rgba(234, 241, 248, 0.7); font-size: 1.8rem; /* Larger icons */
+             margin-right: 20px; /* More space */
+             transition: color 0.3s ease, transform 0.3s ease;
+         }
+         footer .social-icons a:hover { color: var(--primary-color); transform: translateY(-5px); /* More lift */ }
+         .footer-bottom {
+             border-top: 1px solid rgba(234, 241, 248, 0.1); /* Match text-light */
+             padding-top: 30px; margin-top: 40px;
+             text-align: center; font-size: 0.88rem;
+             color: rgba(234, 241, 248, 0.5);
+         }
+         footer .navbar-brand {
+              font-size: 2rem; /* Larger brand */
+              margin-bottom: 15px; display: inline-block;
+               color: var(--primary-color) !important; /* Ensure primary color */
+               text-shadow: 0 0 8px var(--glow-color); /* Add glow */
+         }
+
+
+        /* --- Animation Utility Classes --- */
+        .fade-in-scroll,
+        .slide-up-scroll,
+        .slide-left-scroll,
+        .slide-right-scroll,
+        .zoom-in-scroll {
+            opacity: 0;
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out; /* Combined transition */
+             /* Default transform for non-specific classes */
+            transform: translateY(40px);
+        }
+
+        .slide-up-scroll { transform: translateY(40px); }
+        .slide-left-scroll { transform: translateX(-40px); }
+        .slide-right-scroll { transform: translateX(40px); }
+        .zoom-in-scroll { transform: scale(0.8); }
+
+
+        .fade-in-scroll.visible,
+        .slide-up-scroll.visible,
+        .slide-left-scroll.visible,
+        .slide-right-scroll.visible,
+        .zoom-in-scroll.visible {
+            opacity: 1;
+            transform: translate(0); /* Reset transform */
+        }
+
+
+        /* Responsive Adjustments */
+        @media (max-width: 992px) {
+            .hero-section h1 { font-size: 3rem; }
+            .hero-section .lead { font-size: 1.2rem; }
+            .section-title h2 { font-size: 2.6rem; }
+            #contact h2 { font-size: 3rem; }
+            .card-common { padding: 35px; }
+            .card-common .icon { font-size: 4rem; }
+            .pricing-card .price { font-size: 2.5rem; }
+            .process-step .icon-wrapper { width: 80px; height: 80px; font-size: 2.2rem; border-width: 4px;}
+            .process-step h5 { font-size: 1.2rem; }
+             #technologies .tech-icon { font-size: 3.5rem; }
+             footer .col-lg-4, footer .col-lg-2, footer .col-lg-3 { margin-bottom: 30px; }
+             .accordion-button { font-size: 1.1rem; padding: 1.1rem 1.4rem; }
+             .accordion-body { padding: 0.9rem 1.4rem 1.4rem 1.4rem;}
+        }
+        @media (max-width: 768px) {
+            .hero-section { padding: 150px 0 100px 0; text-align: center; min-height: auto; }
+             .hero-section::before, .hero-section::after, .hero-section .bg-shape { display: none; } /* Hide large shapes on small screens */
+             .hero-section::before { /* Keep grid pattern for hero on small screens */
+                  content: ''; display: block; background-size: 30px 30px;
+             }
+            .hero-section h1 { font-size: 2.5rem; margin-bottom: 20px; }
+            .hero-section .lead { font-size: 1.1rem; margin-bottom: 30px; }
+            .btn-primary, .btn-outline-light, .btn-light, .btn-outline-light-contact { padding: 12px 28px; font-size: 1rem; }
+            .section-title { margin-bottom: 50px; }
+            .section-title h2 { font-size: 2.2rem; }
+            .process-step:not(:last-child)::after { display: block; }
+            .process-row .col-md-3 { width: 50%; }
+            .card-common { padding: 30px; margin-bottom: 25px;}
+            .card-common .icon { font-size: 3.5rem; margin-bottom: 20px;}
+            .card-common h4, .card-common h5 { font-size: 1.3rem; margin-bottom: 10px;}
+            .card-common p { font-size: 1rem; margin-bottom: 20px;}
+            .review-card { margin: 10px 0; padding: 30px;}
+            .review-card img.avatar { width: 80px; height: 80px; margin-bottom: 20px; border-width: 4px;}
+            .review-card .stars { font-size: 1.1rem; margin-bottom: 10px; }
+            .review-card blockquote { font-size: 1rem; margin-bottom: 15px;}
+             #contact h2 { font-size: 2.5rem; }
+             #contact p { font-size: 1.1rem; margin-bottom: 30px;}
+             footer { text-align: center; padding: 40px 0 20px 0;}
+             footer .social-icons { margin-top: 20px; justify-content: center; display: flex;}
+             footer .col-md-6 { margin-bottom: 25px; }
+             .accordion-button { font-size: 1.05rem; padding: 1rem 1.25rem; }
+             .accordion-body { padding: 0.8rem 1.25rem 1rem 1.25rem;}
+             #technologies .icon-grid { gap: 30px; }
+             #technologies .tech-icon { font-size: 3rem; }
+        }
+         @media (max-width: 576px) {
+              .process-row .col-md-3 { width: 100%; }
+              .pricing-card .features li { text-align: center; padding-left: 0;}
+               .pricing-card .features li i { position: static; margin-right: 8px; }
+         }
+
+
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand animate__animated animate__fadeInDown" href="#">WebUx Solution</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#home">হোম</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#services">সেবা</a>
+                    </li>
+                     <li class="nav-item">
+                        <a class="nav-link" href="#process">কার্য প্রক্রিয়া</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#pricing">মূল্য তালিকা</a>
+                    </li>
+                     <li class="nav-item">
+                        <a class="nav-link" href="#technologies">টেকনোলজি</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#features">বৈশিষ্ট্য</a>
+                    </li>
+                     <li class="nav-item">
+                        <a class="nav-link" href="#reviews">রিভিউ</a>
+                    </li>
+                     <li class="nav-item">
+                        <a class="nav-link" href="#faq">জিজ্ঞাসা</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">যোগাযোগ</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="bg-shape"></div> <!-- Added third shape -->
+        <div class="container hero-content">
+            <div class="row align-items-center">
+                <div class="col-lg-10 mx-auto text-center">
+                    <h1 class="animate__animated animate__fadeInUp animate__delay-0.5s">আপনার ডিজিটাল উপস্থিতি শক্তিশালী করুন <span >WebUx Solution</span> এর সাথে</h1>
+                    <p class="lead animate__animated animate__fadeInUp animate__delay-0.8s">আমরা ইউজার এক্সপেরিয়েন্স (UX) ফোকাসড প্রিমিয়াম ওয়েবসাইট, ল্যান্ডিং পেজ, পোর্টফোলিও ও বাজেট-বান্ধব ডোমেইন সলিউশন প্রদান করি। আকর্ষণীয় ডিজাইন, আধুনিক প্রযুক্তি এবং সাশ্রয়ী মূল্য - সবই এক প্ল্যাটফর্মে।</p>
+                    <div class="animate__animated animate__fadeInUp animate__delay-1s">
+                        <a href="#services" class="btn btn-primary btn-lg me-md-2 mb-2 mb-md-0">আমাদের সেবা দেখুন</a>
+                        <a href="#contact" class="btn btn-outline-light btn-lg">আলোচনা করুন</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-5">
+        <div class="container">
+            <div class="section-title slide-up-scroll"> <!-- Changed animation class -->
+                <h2>আমাদের প্রধান সেবা সমূহ</h2>
+                <p>আপনার ব্যবসার প্রয়োজন অনুযায়ী কাস্টমাইজড, দ্রুত এবং নির্ভরযোগ্য ওয়েব সলিউশন।</p>
+            </div>
+            <div class="row">
+                <!-- Landing Page Card -->
+                <div class="col-lg-4 col-md-6 slide-up-scroll"> <!-- Changed animation class -->
+                    <div class="card-common service-card">
+                        <div class="icon"><i class="bi bi-window-plus"></i></div>
+                        <h4>আকর্ষণীয় ও কার্যকর ল্যান্ডিং পেজ</h4>
+                        <p>টার্গেটেড অডিয়েন্সের জন্য বিশেষভাবে ডিজাইন করা সিঙ্গেল পেজ ওয়েবসাইট। দ্রুত লোডিং, SEO ফ্রেন্ডলি এবং কনভার্সন অপটিমাইজড ডিজাইন।</p>
+                         <a href="#contact" class="btn btn-outline-primary mt-auto">বিস্তারিত জানুন</a>
+                    </div>
+                </div>
+                <!-- Store Preview Card -->
+                <div class="col-lg-4 col-md-6 slide-up-scroll" style="transition-delay: 0.15s;"> <!-- Changed animation class -->
+                    <div class="card-common service-card">
+                        <div class="icon"><i class="bi bi-cart-check-fill"></i></div>
+                        <h4>ই-কমার্স স্টোর প্রিভিউ</h4>
+                        <p>ছোট বা মাঝারি অনলাইন ব্যবসার জন্য আকর্ষণীয় এবং ব্যবহারকারী-বান্ধব স্টোর প্রিভিউ। সহজে পণ্য প্রদর্শন ও প্রাথমিক বিক্রয়ের জন্য উপযুক্ত সমাধান।</p>
+                         <a href="#contact" class="btn btn-outline-primary mt-auto">বিস্তারিত জানুন</a>
+                    </div>
+                </div>
+                <!-- Portfolio Site Card -->
+                <div class="col-lg-4 col-md-6 slide-up-scroll" style="transition-delay: 0.3s;"> <!-- Changed animation class -->
+                    <div class="card-common service-card">
+                        <div class="icon"><i class="bi bi-person-workspace"></i></div>
+                        <h4>প্রফেশনাল পোর্টফোলিও সাইট</h4>
+                        <p>ফটোগ্রাফার, ডিজাইনার, লেখক এবং অন্যান্য ক্রিয়েটিভ প্রফেশনালদের জন্য চমৎকার পোর্টফোলিও সাইট। আপনার সেরা কাজগুলো তুলে ধরুন অনন্য উপায়ে।</p>
+                         <a href="#contact" class="btn btn-outline-primary mt-auto">বিস্তারিত জানুন</a>
+                    </div>
+                </div>
+                 <!-- Custom Website Development -->
+                <div class="col-lg-4 col-md-6 slide-up-scroll" style="transition-delay: 0.45s;"> <!-- Changed animation class -->
+                   <div class="card-common service-card">
+                        <div class="icon"><i class="bi bi-code-square"></i></div>
+                        <h4>কাস্টম ওয়েবসাইট ডেভেলপমেন্ট</h4>
+                        <p>আপনার নির্দিষ্ট প্রয়োজন ও ব্যবসার মডেল অনুযায়ী সম্পূর্ণ কাস্টম ওয়েবসাইট তৈরি। ডেডিকেটেড ফিচার ও ফাংশনালিটি যোগ করার সুযোগ।</p>
+                         <a href="#contact" class="btn btn-outline-primary mt-auto">বিস্তারিত জানুন</a>
+                    </div>
+                </div>
+                <!-- Domain & Hosting Assistance -->
+                <div class="col-lg-4 col-md-6 slide-up-scroll" style="transition-delay: 0.6s;"> <!-- Changed animation class -->
+                   <div class="card-common service-card">
+                        <div class="icon"><i class="bi bi-globe2"></i></div>
+                        <h4>ডোমেইন ও হোস্টিং সহায়তা</h4>
+                        <p>আপনার ব্র্যান্ডের জন্য সেরা ডোমেইন নির্বাচন, রেজিস্ট্রেশন এবং নির্ভরযোগ্য হোস্টিং সেটআপে সম্পূর্ণ সহায়তা প্রদান।</p>
+                         <a href="#contact" class="btn btn-outline-primary mt-auto">বিস্তারিত জানুন</a>
+                    </div>
+                </div>
+                <!-- Maintenance & Support -->
+                <div class="col-lg-4 col-md-6 slide-up-scroll" style="transition-delay: 0.75s;"> <!-- Changed animation class -->
+                   <div class="card-common service-card">
+                        <div class="icon"><i class="bi bi-life-preserver"></i></div>
+                        <h4>ওয়েবসাইট রক্ষণাবেক্ষণ ও সাপোর্ট</h4>
+                        <p>সাইট লাইভ হওয়ার পর নিরাপত্তা, আপডেট এবং পারফরম্যান্স নিশ্চিত করার জন্য নিয়মিত রক্ষণাবেক্ষণ ও টেকনিক্যাল সাপোর্ট।</p>
+                         <a href="#contact" class="btn btn-outline-primary mt-auto">বিস্তারিত জানুন</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+     <!-- Our Process Section -->
+    <section id="process" class="py-5 bg-light-subtle">
+        <div class="container">
+            <div class="section-title slide-up-scroll"> <!-- Changed animation class -->
+                 <h2>আমাদের কার্যকর প্রক্রিয়া</h2>
+                 <p>আমরা একটি সরল ও স্বচ্ছ প্রক্রিয়ার মাধ্যমে আপনার ওয়েবসাইটকে বাস্তবে রূপ দেই।</p>
+            </div>
+            <div class="row justify-content-center process-row">
+                <div class="col-md-3 col-sm-6 zoom-in-scroll"> <!-- Changed animation class -->
+                    <div class="process-step">
+                        <div class="icon-wrapper"><i class="bi bi-chat-dots"></i></div>
+                        <h5>১. আলোচনা ও বিশ্লেষণ</h5>
+                        <p>আপনার ব্যবসার লক্ষ্য, অডিয়েন্স এবং প্রয়োজনীয়তা পুঙ্খানুপুঙ্খভাবে বিশ্লেষণ করা হয়।</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 zoom-in-scroll" style="transition-delay: 0.15s;"> <!-- Changed animation class -->
+                    <div class="process-step">
+                        <div class="icon-wrapper"><i class="bi bi-vector-pen"></i></div>
+                        <h5>২. ডিজাইন ও UX পরিকল্পনা</h5>
+                        <p>ব্যবহারকারী-বান্ধব ও নান্দনিক ডিজাইন এবং ইউজার এক্সপেরিয়েন্স (UX) ম্যাপ তৈরি।</p>
+                    </div>
+                </div>
+                 <div class="col-md-3 col-sm-6 zoom-in-scroll" style="transition-delay: 0.3s;"> <!-- Changed animation class -->
+                    <div class="process-step">
+                        <div class="icon-wrapper"><i class="bi bi-file-code"></i></div>
+                        <h5>৩. ডেভেলপমেন্ট</h5>
+                        <p>লেটেস্ট টেকনোলজি ব্যবহার করে ক্লিন, অপটিমাইজড ও রেসপন্সিভ কোডিং।</p>
+                    </div>
+                </div>
+                 <div class="col-md-3 col-sm-6 zoom-in-scroll" style="transition-delay: 0.45s;"> <!-- Changed animation class -->
+                    <div class="process-step">
+                        <div class="icon-wrapper"><i class="bi bi-cloud-upload"></i></div>
+                        <h5>৪. টেস্টিং ও ডেলিভারি</h5>
+                        <p>কঠোর টেস্টিংয়ের পর নিখুঁত ওয়েবসাইট আপনার ডোমেইনে লাইভ করা হয়।</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+     <!-- Pricing Section (Placeholder) -->
+    <section id="pricing" class="py-5">
+        <div class="container">
+            <div class="section-title slide-up-scroll"> <!-- Changed animation class -->
+                 <h2>আমাদের সাশ্রয়ী মূল্য তালিকা</h2>
+                 <p>গুণগত মান বজায় রেখে আপনার বাজেটের মধ্যে সেরা ওয়েব সলিউশন।</p>
+            </div>
+            <div class="row justify-content-center">
+                <!-- Basic Plan -->
+                <div class="col-md-6 col-lg-4 slide-up-scroll"> <!-- Changed animation class -->
+                    <div class="pricing-card">
+                        <div class="package-name">বেসিক প্ল্যান</div>
+                         <div class="price">আলোচনা সাপেক্ষে <span>/ প্রজেক্ট</span></div>
+                        <ul class="features">
+                            <li><i class="bi bi-check-circle-fill"></i> সিঙ্গেল ল্যান্ডিং পেজ</li>
+                            <li><i class="bi bi-check-circle-fill"></i> রেসপন্সিভ ডিজাইন</li>
+                            <li><i class="bi bi-check-circle-fill"></i> কন্টেন্ট আপলোড সহায়তা</li>
+                            <li><i class="bi bi-check-circle-fill"></i> প্রাথমিক SEO অপটিমাইজেশন</li>
+                            <li><i class="bi bi-check-circle-fill"></i> সীমিত সাপোর্ট</li>
+                             <li><i class="bi bi-x-circle-fill text-muted"></i> কাস্টম ফিচার নেই</li>
+                             <li><i class="bi bi-x-circle-fill text-muted"></i> অ্যাডভান্সড অ্যানিমেশন সীমিত</li>
+                        </ul>
+                        <a href="#contact" class="btn btn-outline-primary">আলোচনা করুন</a>
+                    </div>
+                </div>
+                <!-- Standard Plan -->
+                <div class="col-md-6 col-lg-4 slide-up-scroll" style="transition-delay: 0.15s;"> <!-- Changed animation class -->
+                    <div class="pricing-card">
+                        <div class="package-name">স্ট্যান্ডার্ড প্ল্যান</div>
+                        <div class="price">আলোচনা সাপেক্ষে <span>/ প্রজেক্ট</span></div>
+                        <ul class="features">
+                            <li><i class="bi bi-check-circle-fill"></i> ল্যান্ডিং/পোর্টফোলিও/স্টোর প্রিভিউ</li>
+                            <li><i class="bi bi-check-circle-fill"></i> ফুল রেসপন্সিভ ডিজাইন</li>
+                            <li><i class="bi bi-check-circle-fill"></i> ডোমেইন-হোস্টিং সেটআপ সহায়তা</li>
+                            <li><i class="bi bi-check-circle-fill"></i> উন্নত SEO অপটিমাইজেশন</li>
+                             <li><i class="bi bi-check-circle-fill"></i> আকর্ষণীয় অ্যানিমেশন</li>
+                             <li><i class="bi bi-check-circle-fill"></i> কন্টেন্ট ম্যানেজমেন্ট সহায়তা</li>
+                             <li><i class="bi bi-check-circle-fill"></i> ১ মাসের ফ্রি সাপোর্ট</li>
+                        </ul>
+                        <a href="#contact" class="btn btn-primary">পরামর্শ নিন</a>
+                    </div>
+                </div>
+                <!-- Premium Plan -->
+                <div class="col-md-6 col-lg-4 slide-up-scroll" style="transition-delay: 0.3s;"> <!-- Changed animation class -->
+                    <div class="pricing-card">
+                        <div class="package-name">প্রিমিয়াম প্ল্যান</div>
+                        <div class="price">আলোচনা সাপেক্ষে <span>/ প্রজেক্ট</span></div>
+                        <ul class="features">
+                            <li><i class="bi bi-check-circle-fill"></i> মাল্টি-পেজ কাস্টম ওয়েবসাইট</li>
+                            <li><i class="bi bi-check-circle-fill"></i> ডেডিকেটেড UX/UI ডিজাইন</li>
+                            <li><i class="bi bi-check-circle-fill"></i> ডোমেইন-হোস্টিং সম্পূর্ণ সেটআপ</li>
+                            <li><i class="bi bi-check-circle-fill"></i> অ্যাডভান্সড পারফরম্যান্স অপটিমাইজেশন</li>
+                             <li><i class="bi bi-check-circle-fill"></i> ডাইনামিক ফিচার ও ইন্টিগ্রেশন</li>
+                            <li><i class="bi bi-check-circle-fill"></i> ডেডিকেটেড অ্যাকাউন্ট ম্যানেজার</li>
+                            <li><i class="bi bi-check-circle-fill"></i> ৩ মাসের ফ্রি প্রায়োরিটি সাপোর্ট</li>
+                        </ul>
+                        <a href="#contact" class="btn btn-outline-primary">যোগাযোগ করুন</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+     <!-- Technologies Section (Placeholder) -->
+    <section id="technologies" class="py-5">
+        <div class="container">
+            <div class="section-title slide-up-scroll"> <!-- Changed animation class -->
+                 <h2>যে টেকনোলজি ব্যবহার করি</h2>
+                 <p>আধুনিক ও শক্তিশালী ওয়েবসাইট তৈরিতে আমরা বিশ্বস্ত এবং কার্যকর প্রযুক্তি ব্যবহার করি।</p>
+            </div>
+            <div class="icon-grid zoom-in-scroll"> <!-- Changed animation class -->
+                <i class="bi bi-filetype-html tech-icon"></i>
+                <i class="bi bi-filetype-css tech-icon"></i>
+                <i class="bi bi-filetype-js tech-icon"></i>
+                 <i class="bi bi-bootstrap tech-icon"></i>
+                 <i class="bi bi-wordpress tech-icon"></i>
+                 <i class="bi bi-filetype-php tech-icon"></i>
+                 <i class="bi bi-database tech-icon"></i>
+                 <i class="bi bi-git tech-icon"></i>
+                 <i class="bi bi-browser-chrome tech-icon"></i> <!-- Represents modern web standards/browsers -->
+            </div>
+             <div class="text-center mt-5 slide-up-scroll" style="transition-delay: 0.3s;"> <!-- Changed animation class -->
+                 <p class="text-muted">আপনার প্রকল্পের প্রয়োজন অনুযায়ী আমরা আরও বিভিন্ন টেকনোলজি ব্যবহার করতে পারি।</p>
+             </div>
+        </div>
+    </section>
+
+
+     <!-- Features Section -->
+    <section id="features" class="py-5 bg-white">
+        <div class="container">
+             <div class="section-title slide-up-scroll"> <!-- Changed animation class -->
+                <h2>আমাদের অনন্য বৈশিষ্ট্য</h2>
+                <p>WebUx Solution কেন আপনার সেরা পছন্দ?</p>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-6 slide-left-scroll"> <!-- Changed animation class -->
+                    <div class="card-common feature-item text-center">
+                         <div class="icon"><i class="bi bi-display"></i></div>
+                         <h5>সম্পূর্ণ রেসপন্সিভ ডিজাইন</h5>
+                         <p>যেকোনো ডিভাইস (মোবাইল, ট্যাবলেট, ল্যাপটপ, ডেস্কটপ)-এ আপনার সাইট নিখুঁত দেখাবে, ব্যবহারকারীর সেরা অভিজ্ঞতা নিশ্চিত করবে।</p>
+                    </div>
+                </div>
+                 <div class="col-lg-4 col-md-6 slide-up-scroll" style="transition-delay: 0.15s;"> <!-- Changed animation class -->
+                    <div class="card-common feature-item text-center">
+                         <div class="icon"><i class="bi bi-brush"></i></div>
+                         <h5>প্রিমিয়াম ও আধুনিক লুক</h5>
+                         <p>লেটেস্ট ডিজাইন ট্রেন্ড এবং ইউজার এক্সপেরিয়েন্স (UX) Prinzipien ব্যবহার করে তৈরি, যা আপনার ব্র্যান্ডকে দেবে প্রফেশনাল ও বিশ্বস্ততার ছোঁয়া।</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 slide-right-scroll" style="transition-delay: 0.3s;"> <!-- Changed animation class -->
+                   <div class="card-common feature-item text-center">
+                         <div class="icon"><i class="bi bi-lightning-charge"></i></div>
+                         <h5>হাই-পারফরম্যান্স ও দ্রুত লোডিং</h5>
+                         <p>অপ্টিমাইজড কোড এবং আধুনিক কৌশল ব্যবহার করে দ্রুত লোডিং নিশ্চিত করা, যা ইউজার এক্সপেরিয়েন্স এবং SEO Ranking-এর জন্য অত্যন্ত গুরুত্বপূর্ণ।</p>
+                    </div>
+                </div>
+                 <div class="col-lg-4 col-md-6 slide-left-scroll" style="transition-delay: 0.45s;"> <!-- Changed animation class -->
+                    <div class="card-common feature-item text-center">
+                         <div class="icon"><i class="bi bi-shield-lock"></i></div>
+                         <h5>নিরাপত্তা ও নির্ভরযোগ্যতা</h5>
+                         <p>আপনার ওয়েবসাইটের নিরাপত্তা আমাদের কাছে গুরুত্বপূর্ণ। আধুনিক সুরক্ষা ব্যবস্থা এবং নির্ভরযোগ্য হোস্টিং সেটআপে সহায়তা করি।</p>
+                    </div>
+                 </div>
+                 <div class="col-lg-4 col-md-6 slide-up-scroll" style="transition-delay: 0.6s;"> <!-- Changed animation class -->
+                     <div class="card-common feature-item text-center">
+                         <div class="icon"><i class="bi bi-currency-dollar"></i></div>
+                         <h5>তুলনাহীন সাশ্রয়ী মূল্য</h5>
+                         <p>কোয়ালিটির সাথে আপোস না করে, বাজারের সেরা দামে উন্নতমানের ওয়েব সলিউশন প্রদান করি, যা আপনার ROI বাড়াতে সাহায্য করবে।</p>
+                     </div>
+                 </div>
+                 <div class="col-lg-4 col-md-6 slide-right-scroll" style="transition-delay: 0.75s;"> <!-- Changed animation class -->
+                     <div class="card-common feature-item text-center">
+                         <div class="icon"><i class="bi bi-headset-vr"></i></div>
+                         <h5>একনিষ্ঠ কাস্টমার সাপোর্ট</h5>
+                         <p>প্রজেক্ট চলাকালীন এবং সাইট লাইভ হওয়ার পরেও আমরা সবরকম প্রয়োজনীয় টেকনিক্যাল সাপোর্ট ও সহায়তা দিয়ে থাকি, যেন আপনি নিশ্চিন্ত থাকতে পারেন।</p>
+                     </div>
+                 </div>
+            </div>
+        </div>
+    </section>
+
+     <!-- Reviews Section -->
+    <section id="reviews" class="py-5 bg-light-subtle">
+        <div class="container">
+             <div class="section-title slide-up-scroll"> <!-- Changed animation class -->
+                <h2>আমাদের সন্তুষ্ট ক্লায়েন্টরা যা বলেন</h2>
+                <p>তাদের সাফল্যই আমাদের অনুপ্রেরণা। কিছু ক্লায়েন্টের অভিজ্ঞতা শুনুন।</p>
+            </div>
+            <div id="reviewCarousel" class="carousel slide fade-in-scroll" data-bs-ride="carousel"> <!-- Kept fade-in for the whole carousel -->
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="row justify-content-center">
+                            <div class="col-md-8 col-lg-7">
+                                 <div class="review-card">
+                                    <img src="https://via.placeholder.com/100x100/00bcd4/ffffff?text=U1" alt="Client Avatar" class="avatar"> <!-- Placeholder image matching primary color -->
+                                     <div class="stars">
+                                         <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                                     </div>
+                                    <blockquote>"WebUx Solution আমার প্রত্যাশার চেয়েও ভালো কাজ করেছে! আমার ল্যান্ডিং পেজটি দেখতে অসাধারণ হয়েছে, দ্রুত লোড হয় এবং কাস্টমাররা সহজেই ব্যবহার করতে পারছে। তাদের UX ফোকাস সত্যিই প্রশংসার যোগ্য।"</blockquote>
+                                    <div class="reviewer-name">জনাব আরিফ হোসেন</div>
+                                    <div class="reviewer-info">প্রতিষ্ঠাতা, ডিজিটাল মার্কেটিং এজেন্সি</div>
+                                 </div>
+                            </div>
+                        </div>
+                    </div>
+                     <div class="carousel-item">
+                         <div class="row justify-content-center">
+                            <div class="col-md-8 col-lg-7">
+                                <div class="review-card">
+                                    <img src="https://via.placeholder.com/100x100/212f3d/ffffff?text=U2" alt="Client Avatar" class="avatar"> <!-- Placeholder image matching secondary color -->
+                                    <div class="stars">
+                                        <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i>
+                                    </div>
+                                    <blockquote>"আমার ফটোগ্রাফি পোর্টফোলিওর জন্য একটি আধুনিক ও রেসপন্সিভ সাইট দরকার ছিল। WebUx Solution আমার আইডিয়াগুলোকে বাস্তবে রূপ দিয়েছে চমৎকারভাবে। তাদের কমিউনিকেশন ও কাজের মান খুবই উন্নত।"</blockquote>
+                                    <div class="reviewer-name">সুমাইয়া আক্তার</div>
+                                    <div class="reviewer-info">ফ্রিল্যান্স ফটোগ্রাফার</div>
+                                </div>
+                             </div>
+                        </div>
+                    </div>
+                     <div class="carousel-item">
+                        <div class="row justify-content-center">
+                            <div class="col-md-8 col-lg-7">
+                                <div class="review-card">
+                                     <img src="https://via.placeholder.com/100x100/9b59b6/ffffff?text=U3" alt="Client Avatar" class="avatar"> <!-- Placeholder image matching accent color -->
+                                    <div class="stars">
+                                        <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                                    </div>
+                                    <blockquote>"ডোমেইন, হোস্টিং এবং ওয়েবসাইট সেটআপ - পুরো প্রক্রিয়াটি নিয়ে আমার ধারণা ছিল না। WebUx Solution আমাকে ধাপে ধাপে সবকিছু বুঝিয়ে সাহায্য করেছে। তাদের পেশাদারিত্ব এবং সাশ্রয়ী প্যাকেজগুলো দারুণ।"</blockquote>
+                                    <div class="reviewer-name">মোঃ ইকবাল কবির</div>
+                                    <div class="reviewer-info">ই-কমার্স উদ্যোক্তা</div>
+                                </div>
+                             </div>
+                         </div>
+                    </div>
+                </div>
+                <div class="carousel-indicators mt-4">
+                    <button type="button" data-bs-target="#reviewCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#reviewCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#reviewCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+     <!-- FAQ Section -->
+    <section id="faq" class="py-5">
+        <div class="container">
+             <div class="section-title slide-up-scroll"> <!-- Changed animation class -->
+                <h2>সাধারণ জিজ্ঞাসা (FAQ)</h2>
+                <p>আপনার মনে থাকা প্রশ্নগুলোর উত্তর এখানেই পেতে পারেন। আরও জানতে আমাদের সাথে যোগাযোগ করুন।</p>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-9">
+                    <div class="accordion slide-up-scroll" id="faqAccordion"> <!-- Changed animation class -->
+                        <!-- FAQ Item 1 -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingOne">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                                    ওয়েবসাইট তৈরি করতে কত খরচ হবে?
+                                </button>
+                            </h2>
+                            <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    ওয়েবসাইটের খরচ নির্ভর করে ডিজাইন, ফিচার, পেজের সংখ্যা এবং আপনার নির্দিষ্ট চাহিদার উপর। আমরা বিভিন্ন প্যাকেজ অফার করি এবং কাস্টom প্রজেক্টের জন্য আলোচনা করে মূল্য নির্ধারণ করি। বিস্তারিত জানতে আমাদের মূল্য তালিকা দেখুন অথবা সরাসরি যোগাযোগ করুন।
+                                </div>
+                            </div>
+                        </div>
+                        <!-- FAQ Item 2 -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingTwo">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                   ওয়েবসাইট ডেভেলপমেন্টে কত সময় লাগবে?
+                                </button>
+                            </h2>
+                            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                   প্রকল্পের ধরন অনুযায়ী সময় ভিন্ন হয়। একটি স্ট্যান্ডার্ড ল্যান্ডিং পেজ বা পোর্টফোলিও সাইট সাধারণত ৫-১০ কার্যদিবসের মধ্যে তৈরি করা সম্ভব। আরও জটিল বা কাস্টম ওয়েবসাইটের জন্য বেশি সময় লাগতে পারে। আমরা দ্রুত এবং কার্যকর ডেলিভারি নিশ্চিত করি।
+                                </div>
+                            </div>
+                        </div>
+                         <!-- FAQ Item 3 -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingThree">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                   আপনারা কি ডোমেইন এবং হোস্টিং সেবাও দেন?
+                                </button>
+                            </h2>
+                            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                   আমরা সরাসরি হোস্টিং প্রদান করি না, তবে আপনার ব্যবসার জন্য সেরা এবং নির্ভরযোগ্য হোস্টিং প্রোভাইডার বেছে নিতে এবং সার্ভার সেটআপ করতে সম্পূর্ণ সহায়তা করি। আমরা প্রিমিয়াম ডোমেইন রেজিস্ট্রেশন সেবাও প্রদান করি এবং বাজেট-বান্ধব ডোমেইন পেতে গাইড করি।
+                                </div>
+                            </div>
+                        </div>
+                         <!-- FAQ Item 4 -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingFour">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                   ওয়েবসাইট তৈরির পর কি সাপোর্ট পাওয়া যাবে?
+                                </button>
+                            </h2>
+                            <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                   হ্যাঁ, অবশ্যই। আমরা ওয়েবসাইট ডেলিভারির পর নির্দিষ্ট সময় পর্যন্ত বিনামূল্যে টেকনিক্যাল সাপোর্ট প্রদান করি (প্ল্যান অনুযায়ী ভিন্ন হতে পারে)। এছাড়াও, দীর্ঘমেয়াদী রক্ষণাবেক্ষণ (Maintenance) চুক্তির মাধ্যমে নিয়মিত সাপোর্ট এবং আপডেটের ব্যবস্থাও রয়েছে।
+                                </div>
+                            </div>
+                        </div>
+                         <!-- Added FAQ Item 5 -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingFive">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                                   আপনারা কি শুধুমাত্র ল্যান্ডিং পেজ বা পোর্টফোলিও সাইট বানান?
+                                </button>
+                            </h2>
+                            <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                   না, আমরা বিভিন্ন ধরণের ওয়েবসাইট তৈরি করি যার মধ্যে ল্যান্ডিং পেজ, পোর্টফোলিও, ই-কমার্স স্টোর প্রিভিউ ছাড়াও আপনার ব্যবসার প্রয়োজন অনুযায়ী সম্পূর্ণ কাস্টম ও মাল্টি-পেজ ওয়েবসাইটও অন্তর্ভুক্ত। আপনার নির্দিষ্ট চাহিদা নিয়ে আলোচনা করতে আমাদের সাথে যোগাযোগ করুন।
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Call to Action Section -->
+    <section id="contact" class="contact-section">
+        <div class="container fade-in-scroll"> <!-- Kept fade-in for the main container -->
+            <h2>আপনার ডিজিটাল স্বপ্নকে বাস্তবে রূপ দিতে প্রস্তুত?</h2>
+            <p>আজই আমাদের বিশেষজ্ঞ দলের সাথে কথা বলুন আপনার আইডিয়া এবং প্রয়োজন নিয়ে। আমরা আপনার বাজেট এবং লক্ষ্যের সাথে সামঞ্জস্য রেখে সেরা UX-সমন্বিত ডিজিটাল সমাধানটি দেব।</p>
+            <div class="d-flex flex-column flex-md-row justify-content-center">
+                 <a href="mailto:info@webuxsolution.com?subject=Website%20Inquiry%20from%20Website" class="btn btn-light btn-lg me-md-3 mb-3 mb-md-0 animate__animated animate__pulse animate__infinite"> <!-- Added infinite pulse -->
+                    <i class="bi bi-envelope-fill me-2"></i> আমাদের ইমেইল করুন
+                 </a>
+                  <a href="tel:+8801XXXXXXXXX" class="btn btn-outline-light-contact btn-lg mb-3 mb-md-0"> <!-- Replace with actual phone -->
+                    <i class="bi bi-telephone-fill me-2"></i> কল করুন (যোগাযোগের জন্য)
+                 </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <!-- Column 1: About -->
+                <div class="col-lg-4 col-md-6">
+                    <h5><a class="navbar-brand" href="#">WebUx Solution</a></h5>
+                    <p>WebUx Solution একটি ওয়েব সলিউশন প্রদানকারী সংস্থা যা সাশ্রয়ী মূল্যে আকর্ষণীয় এবং কার্যকরী UX-সমন্বিত ওয়েবসাইট (ল্যান্ডিং পেজ, পোর্টফোলিও, স্টোর প্রিভিউ, কাস্টম সাইট) এবং ডোমেইন সমাধান প্রদান করে। আপনার ডিজিটাল যাত্রায় আমরা বিশ্বস্ত সহযোগী।</p>
+                </div>
+                <!-- Column 2: Quick Links -->
+                <div class="col-lg-2 col-md-6">
+                    <h5>কুইক লিঙ্কস</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#home">হোম</a></li>
+                        <li><a href="#services">সেবা সমূহ</a></li>
+                        <li><a href="#features">বৈশিষ্ট্য</a></li>
+                         <li><a href="#pricing">মূল্য তালিকা</a></li>
+                         <li><a href="#technologies">টেকনোলজি</a></li>
+                        <li><a href="#reviews">রিভিউ</a></li>
+                        <li><a href="#faq">জিজ্ঞাসা</a></li>
+                        <li><a href="#contact">যোগাযোগ</a></li>
+                    </ul>
+                </div>
+                <!-- Column 3: Services -->
+                 <div class="col-lg-3 col-md-6">
+                    <h5>আমাদের সেবা সমূহ</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#services">ল্যান্ডিং পেজ ডিজাইন</a></li>
+                        <li><a href="#services">পোর্টফোলিও ওয়েবসাইট</a></li>
+                         <li><a href="#services">ই-কমার্স প্রিভিউ</a></li>
+                         <li><a href="#services">কাস্টম ওয়েব ডেভেলপমেন্ট</a></li>
+                        <li><a href="#services">ডোমেইন ও হোস্টিং সহায়তা</a></li>
+                         <li><a href="#services">ওয়েবসাইট মেইনটেন্যান্স</a></li>
+                    </ul>
+                </div>
+                <!-- Column 4: Contact & Social -->
+                <div class="col-lg-3 col-md-6">
+                    <h5>যোগাযোগ</h5>
+                     <ul class="list-unstyled">
+                         <li><i class="bi bi-envelope-fill me-2 text-primary"></i> <a href="mailto:info@webuxsolution.com">info@webuxsolution.com</a></li>
+                         <li><i class="bi bi-telephone-fill me-2 text-primary"></i> +880 1XXX XXXXXX</li> <!-- Placeholder -->
+                         <li><i class="bi bi-geo-alt-fill me-2 text-primary"></i> ঢাকা, বাংলাদেশ</li> <!-- Placeholder -->
+                     </ul>
+                    <div class="social-icons mt-4 text-start text-md-center">
+                        <a href="#" title="Facebook" target="_blank"><i class="bi bi-facebook"></i></a>
+                        <a href="#" title="LinkedIn" target="_blank"><i class="bi bi-linkedin"></i></a>
+                        <a href="#" title="Twitter / X" target="_blank"><i class="bi bi-twitter-x"></i></a>
+                         <a href="#" title="GitHub (Optional)" target="_blank"><i class="bi bi-github"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                 © <script>document.write(new Date().getFullYear());</script> WebUx Solution. সর্বস্বত্ব সংরক্ষিত। ডিজাইন ও ডেভেলপমেন্ট - WebUx Solution.
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+    <!-- Custom JavaScript -->
+    <script>
+        // --- Animation on Scroll ---
+        const observerOptions = {
+            root: null, rootMargin: '0px', threshold: 0.1 // Trigger when 10% is visible
+        };
+        const observerCallback = (entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    // Optional: Stop observing once animated
+                    // observer.unobserve(entry.target);
+                }
+                // Optional: Remove 'visible' class if needed for re-animation when scrolling up
+                // else { entry.target.classList.remove('visible'); }
+            });
+        };
+        const scrollObserver = new IntersectionObserver(observerCallback, observerOptions);
+        // Select all elements with any of the animation classes
+        const elementsToAnimate = document.querySelectorAll('.fade-in-scroll, .slide-up-scroll, .slide-left-scroll, .slide-right-scroll, .zoom-in-scroll');
+        elementsToAnimate.forEach(el => scrollObserver.observe(el));
+
+        // --- Smooth Scrolling ---
+        document.querySelectorAll('a.nav-link[href^="#"], footer a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const targetId = this.getAttribute('href');
+                if (targetId && targetId.startsWith('#') && targetId.length > 1) {
+                     e.preventDefault();
+                     const targetElement = document.querySelector(targetId);
+                     if(targetElement) {
+                         const navbarHeight = document.querySelector('.navbar').offsetHeight;
+                         const elementPosition = targetElement.getBoundingClientRect().top;
+                         const offset = 80; // Increased offset for better spacing below fixed navbar
+                         const offsetPosition = elementPosition + window.pageYOffset - navbarHeight - offset;
+
+                         window.scrollTo({
+                             top: offsetPosition,
+                             behavior: 'smooth'
+                         });
+
+                        // Optional: Close mobile navbar after click
+                        const navbarCollapse = document.querySelector('.navbar-collapse');
+                        if (navbarCollapse.classList.contains('show')) {
+                            const bsCollapse = new bootstrap.Collapse(navbarCollapse, { toggle: false });
+                            bsCollapse.hide();
+                        }
+                     }
+                }
+            });
+        });
+
+
+        // --- Navbar Background Change on Scroll ---
+        const navbar = document.querySelector('.navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 60) { // Slightly increased threshold
+                navbar.classList.add('navbar-scrolled');
+            } else {
+                 navbar.classList.remove('navbar-scrolled');
+            }
+        });
+
+        // --- Active Nav Link Highlighting on Scroll ---
+         const sections = document.querySelectorAll('section[id]');
+         const navLi = document.querySelectorAll('.navbar-nav .nav-item .nav-link');
+         const navbarHeight = document.querySelector('.navbar').offsetHeight;
+         const sectionOffsetBuffer = 150; // Increased buffer for more reliable detection
+
+         window.addEventListener('scroll', () => {
+            let current = '';
+            const scrollY = window.pageYOffset;
+
+            sections.forEach( section => {
+                // Use getBoundingClientRect().top relative to viewport + current scroll position
+                const sectionTop = section.getBoundingClientRect().top + window.pageYOffset - (navbarHeight + sectionOffsetBuffer);
+                const sectionHeight = section.offsetHeight;
+                const sectionId = section.getAttribute('id');
+
+                if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight){
+                    current = sectionId;
+                }
+            });
+
+            navLi.forEach( link => {
+                link.classList.remove('active');
+                // Check if the link's href matches the current section ID
+                if(link.getAttribute('href').substring(1) === current) {
+                    link.classList.add('active');
+                }
+                 // Special case for the Home link when at the very top
+                 if (current === '' && link.getAttribute('href') === '#home') {
+                      link.classList.add('active');
+                 }
+            });
+             // Fallback for the home link if scrolled above the first section threshold
+             if (scrollY < sections[0].getBoundingClientRect().top + window.pageYOffset - (navbarHeight + sectionOffsetBuffer/2) ) {
+                 navLi.forEach(link => link.classList.remove('active'));
+                 const homeLink = document.querySelector('.navbar-nav .nav-link[href="#home"]');
+                 if(homeLink) homeLink.classList.add('active');
+             }
+        });
+
+    </script>
+
+</body>
+  </html>
